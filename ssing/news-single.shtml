@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="format-detection" content="telephone=no">
+	<title>潮流资讯</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="header-back"></div>
+		<div class="header-op">
+			<a href="#"><i class="icon-star"></i></a>
+			<a href="#"><i class="icon-share"></i></a>
+			<a href="#"><i class="icon-comment"></i></a>
+		</div>
+	</header>
+	<div class="container">
+		<div class="post">
+			<h2 class="post-title">新品 | Nike 2015 Free 跑鞋：这是一个看脸的世界</h2>
+			<p class="post-date">2015-01-19 17:41</p>
+			<p class="post-excerpt">如果你是跑鞋颜控的话可能 Nike 最新推出的 Free 系列会让你有所倾心~~·</p>
+			<div class="post-content">
+				<p>在你的印象里跑鞋品牌中除去功能设计不说哪一家的跑鞋外观设计最好看，大脑开始飞速的旋转，脑海中出现的品牌名一个一个被删除，最后留下了 Nike、adidas 以及 NewBalance 等等，可以很明显的发现这些留下的品牌几乎都是除了在跑鞋领域有所作为之外，在时尚鞋品上做的也是十分出色</p>
+				<p><img src="upload/post-img1.jpg" alt=""></p>
+				<p>如果要选一个时尚中最能跑的以及跑鞋中最时尚的我可能会选择 adidas 或者 NewBalance， 但是如果要选一个将时尚和跑鞋结合起来都做的不错的这一票恐怕非 Nike 莫属了。尤其是 Nike 最近几年主打的 Free 赤足系列跑鞋，当然颜值都是一步步建立起来的，Nike Free 也经历过让人吐槽的年代，不过 Nike 最新推出的 2015 款 Free 跑鞋让人知道这是一个看脸的世界。</p>
+				<p><img src="upload/post-img2.jpg" alt=""></p>
+			</div>
+		</div>
+		<div class="panel">
+			<div class="panel-heading">猜你可能喜欢如下鞋款</div>
+			<ul class="recommend-list">
+				<li>
+					<a href="">
+						<div class="rec-img"><img src="upload/shoe1-sm.jpg" alt=""></div>
+						<h3 class="rec-title">MERCURIAL VELOCELL AG-R CR 男子足球鞋</h3>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="rec-img"><img src="upload/shoe2-sm.jpg" alt=""></div>
+						<h3 class="rec-title">迪卡侬新款跑步鞋 缓震舒适运动鞋 KALENJI</h3>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="rec-img"><img src="upload/shoe3-sm.jpg" alt=""></div>
+						<h3 class="rec-title">adidas boost 跑步鞋 一号黑 M29526</h3>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="panel">
+			<div class="panel-heading">相关阅读</div>
+			<ul class="relative-list">
+				<li>
+					<a href="">
+						<div class="rel-img"><img src="upload/rel1.jpg" alt=""></div>
+						<div class="rel-info">
+							<h3 class="rel-title">跑步新手永远不会选错的5款跑鞋推荐</h3>
+							<p class="rel-date">2015-01-19 17:41</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="rel-img"><img src="upload/rel2.jpg" alt=""></div>
+						<div class="rel-info">
+							<h3 class="rel-title">元祖复活？！Diadora科普贴告诉你为什么它能大翻身</h3>
+							<p class="rel-date">2015-01-19 17:41</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="rel-img"><img src="upload/rel3.jpg" alt=""></div>
+						<div class="rel-info">
+							<h3 class="rel-title">女学霸如何成为山野女王——Lizzy Hawker的跑步人生</h3>
+							<p class="rel-date">2015-01-19 17:41</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="panel">
+			<div class="panel-heading">10条评论 287条朋友圈</div>
+			<div class="panel-body">
+				<div class="cmt-list">
+					<div class="cmt-item">
+						<div class="cmt-face"><a href=""><img src="upload/face1.jpg" alt=""></a></div>
+						<div class="cmt-info">
+							<p class="cmt-by"><a href="">羞花Shy <span class="level">Lv 21</span></a></p>
+							<p class="cmt-cnt">说的不错，这确实是个看脸的世界~又一双颜值爆表的“运动鞋”</p>
+							<p class="cmt-op">
+								<span class="date">2015-03-26</span>
+								<a href=""><i class="icon-talk"></i><span>回复</span></a>
+								<a href=""><i class="icon-like"></i><span>顶(12)</span></a>
+								<a href=""><i class="icon-warn"></i><span>举报</span></a>
+							</p>
+						</div>
+						<div class="cmt-floor">4F</div>
+					</div>
+					<div class="cmt-item">
+						<div class="cmt-face"><a href=""><img src="upload/face2.jpg" alt=""></a></div>
+						<div class="cmt-info">
+							<p class="cmt-by"><a href="">爱新觉罗 <span class="level">Lv 26</span></a></p>
+							<p class="cmt-cnt">耐克就赢在，深知这是看脸的时代</p>
+							<div class="cmt-msg">
+								<span class="floor">1F</span>
+								<a href="">沉鱼Cheny</a> 说：
+								<p>为什么耐克的鞋鞋都这么好看呢，大爱啊，哈哈哈哈哈！！！</p>
+							</div>
+							<p class="cmt-op">
+								<span class="date">2015-03-26</span>
+								<a href=""><i class="icon-talk"></i><span>回复</span></a>
+								<a href=""><i class="icon-like"></i><span>顶(12)</span></a>
+								<a href=""><i class="icon-warn"></i><span>举报</span></a>
+							</p>
+						</div>
+						<div class="cmt-floor">3F</div>
+					</div>
+					<div class="cmt-item">
+						<div class="cmt-face"><a href=""><img src="upload/face3.jpg" alt=""></a></div>
+						<div class="cmt-info">
+							<p class="cmt-by"><a href="">闭月Beey <span class="level">Lv 16</span></a></p>
+							<p class="cmt-cnt">真心好看，入了一双，嘿嘿！</p>
+							<div class="cmt-img">
+								<img src="upload/reply-img1.jpg" alt="">
+								<img src="upload/reply-img2.jpg" alt="">
+							</div>
+							<p class="cmt-op">
+								<span class="date">2015-03-26</span>
+								<a href=""><i class="icon-talk"></i><span>回复</span></a>
+								<a href=""><i class="icon-like"></i><span>顶(12)</span></a>
+								<a href=""><i class="icon-warn"></i><span>举报</span></a>
+							</p>
+						</div>
+						<div class="cmt-floor">2F</div>
+					</div>
+					<div class="cmt-item">
+						<div class="cmt-face"><a href=""><img src="upload/face4.jpg" alt=""></a></div>
+						<div class="cmt-info">
+							<p class="cmt-by"><a href="">沉鱼Cheny <span class="level">Lv 2</span></a></p>
+							<p class="cmt-cnt">为什么耐克的鞋鞋都这么好看呢，大爱啊，哈哈哈哈哈！！！</p>
+							<p class="cmt-op">
+								<span class="date">2015-03-26</span>
+								<a href=""><i class="icon-talk"></i><span>回复</span></a>
+								<a href=""><i class="icon-like"></i><span>顶(12)</span></a>
+								<a href=""><i class="icon-warn"></i><span>举报</span></a>
+							</p>
+						</div>
+						<div class="cmt-floor">1F</div>
+					</div>
+				</div>
+				<a class="cmt-more">点击加载更多</a>
+			</div>
+		</div>
+	</div>
+	<script src="js/zepto.min.js"></script>
+	<script>
+	$(function(){
+		$('.header-back').click(function(){
+			window.history.go(-1);
+		})
+	})
+	</script>
+</body>
+</html>

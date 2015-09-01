@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="format-detection" content="telephone=no">
+	<title>搜索结果</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="search-header">
+		<form class="search-form" action="search-result.shtml">
+			<input class="search-input" id="searchKeyword" type="search" placeholder="输入感兴趣的关键字" value="">
+			<button class="search-btn"  id="searchBtn"><i class="icon-search"></i></button>
+		</form>
+		<div class="header-back"></div>
+		<div class="header-filter"><i class="icon-filter"></i></div>
+	</div>
+	<div class="search-popup" id="searchPopup">
+		<div id="j_cookie">
+			<div class="search-wrap hide" id="j_history">
+				<h4 class="search-title">搜索历史<a href="" class="search-close">&times;</a></h4>
+				<ul class="search-list"></ul>
+			</div>
+			<div class="search-wrap hide" id="j_hot">
+				<h4 class="search-title">履行者搜索热门关键字<a href="" class="search-close">&times;</a></h4>
+				<ul class="search-list"></ul>
+			</div>
+		</div>
+		<div id="j_search"></div>
+	</div>
+	<div class="search-result">
+		<ul class="pro-list" id="j_result">
+			<!-- <li>
+				<a href="#">
+					<div class="list-img"><img src="upload/shoe1-sm.jpg" alt=""></div>
+					<div class="list-desc">
+						<h3 class="list-name">adidas 阿迪达斯 跑步 男子 跑步鞋 一号黑 S84052</h3>
+						<div class="list-price"><span class="list-label">预售价格：</span><strong>&yen;1239.00</strong></div>
+						<div class="list-cat"><span class="list-label">类型：</span><span>跑步系列</span></div>
+					</div>
+				</a>
+			</li> -->
+		</ul>
+		<div class="loading-more" id="j_more">加载更多</div>
+	</div>
+
+	<div class="filter">
+		<div class="filter-close">&times;</div>
+		<div class="filter-dialog">
+			<div class="filter-heading">
+				<h3>筛选</h3>
+				<button class="btn" id="filterBtn">确定</button>
+			</div>
+			<div class="filter-body">
+				<ul class="filter-cats" id="filterCats">
+					<li>
+						<a>
+							<span class="label">性别</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="male"><span>男鞋</span><i class="icon-checked"></i></li>
+							<li data-value="female"><span>女鞋</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+					<li>
+						<a>
+							<span class="label">运动类别</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="Tranning"><span>训练</span><i class="icon-checked"></i></li>
+							<li data-value="Basketball"><span>篮球</span><i class="icon-checked"></i></li>
+							<li data-value="Football"><span>足球</span><i class="icon-checked"></i></li>
+							<li data-value="Running"><span>跑步</span><i class="icon-checked"></i></li>
+							<li data-value="Volleyball"><span>排球</span><i class="icon-checked"></i></li>
+							<li data-value="Tennis"><span>网球</span><i class="icon-checked"></i></li>
+							<li data-value="Ping"><span>乒乓球</span><i class="icon-checked"></i></li>
+							<li data-value="Outdoor"><span>户外</span><i class="icon-checked"></i></li>
+							<li data-value="Skate"><span>滑板</span><i class="icon-checked"></i></li>
+							<li data-value="Walking"><span>健步</span><i class="icon-checked"></i></li>
+							<li data-value="Baseball"><span>棒球</span><i class="icon-checked"></i></li>
+							<li data-value="Leisure"><span>休闲</span><i class="icon-checked"></i></li>
+							<li data-value="Slipper"><span>拖鞋</span><i class="icon-checked"></i></li>
+							<li data-value="Others"><span>其他</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+					<li>
+						<a>
+							<span class="label">品牌分类</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="adidas"><span>adidas</span><i class="icon-checked"></i></li>
+							<li data-value="Nike"><span>Nike</span><i class="icon-checked"></i></li>
+							<li data-value="New Balance"><span>New Balance</span><i class="icon-checked"></i></li>
+							<li data-value="Asics"><span>Asics</span><i class="icon-checked"></i></li>
+							<li data-value="Puma"><span>Puma</span><i class="icon-checked"></i></li>
+							<li data-value="Lining"><span>Lining</span><i class="icon-checked"></i></li>
+							<li data-value="Mizuno"><span>Mizuno</span><i class="icon-checked"></i></li>
+							<li data-value="Air Jordan"><span>Air Jordan</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/filter.js"></script>
+	<script>
+	//初始化热门关键字
+	localStorage.setItem("SearchHot", "AIR JORDAN--NEW BALANCE--BOOST--KOBE--LeBron");
+
+	var thisid=location.search.split("=")[1].split("&")[0];
+
+	var oWrap = $('#j_result'),
+		oMore = $('#j_more'),
+		count = 1;
+
+	function getHistory(){
+		var historyStorage = localStorage.getItem("SearchHistory");
+		if (!historyStorage || historyStorage == "") {
+		    return null;
+		}
+		return historyStorage;
+	}
+	function getHot(){
+		var hotStorage = localStorage.getItem("SearchHot");
+		if (!hotStorage || hotStorage == "") {
+		    return null;
+		}
+		return hotStorage;
+	}
+	function addHistory(keyword){
+		var history = getHistory();
+		if(history != null){
+			var thisHistory = keyword + "--" + history;
+		}else{
+			var thisHistory = keyword;
+		}
+		var cookie = thisHistory.split("--");
+
+		if(cookie.length > 5){
+			cookie.pop();
+		}
+		var result = cookie.join("--");
+		localStorage.setItem("SearchHistory", result);
+	}
+	function deleteStorage(storage){
+		if(storage == "SearchHistory"){
+			$("#j_history").addClass('hide');
+			localStorage.removeItem("SearchHistory");
+		}else if(storage == "SearchHot"){
+			$("#j_hot").addClass('hide');
+			localStorage.removeItem("SearchHot");
+		}
+	}
+	function renderResult(){
+		if(getHistory() != null){
+			var $historyList = $("#j_history").find('.search-list');
+			var history = getHistory();
+			var historyCookie = history.split("--");
+
+			$("#j_history").removeClass('hide');
+			$historyList.empty();
+			for(var i = 0; i < historyCookie.length; i++){
+				$("<li>"+historyCookie[i]+"</li>").appendTo($historyList);
+			}
+		}
+		if(getHot() != null){
+			var $hotList = $("#j_hot").find('.search-list');
+			var hot = getHot();
+			var hotCookie = hot.split("--");
+
+			$("#j_hot").removeClass('hide');
+			$hotList.empty();
+			for(var i = 0; i < hotCookie.length; i++){
+				$("<li>"+hotCookie[i]+"</li>").appendTo($hotList);
+			}
+		}
+	}
+	/*function getQuery(){
+		var url = window.location.href,
+			query = decodeURI(url.slice(url.indexOf('=')).slice(1));
+		return query;
+	}*/
+	function getResult(){
+		var hash = location.search.split("=");
+		if(hash.length > 2){
+			var gender = sessionStorage.getItem('gender');
+			var category = sessionStorage.getItem('category');
+			var brand = sessionStorage.getItem('brand');
+			$.ajax({
+				url: '/api/filter_search',
+				type: 'GET',
+				dataType: 'json',
+				data: {page: count, gender: gender, category: category, brand: brand},
+				success: function(data){
+					var list = data,
+						_list = '';
+					for(i in list){
+						_list += '<li><a href="product.shtml?uuid='+list[i].uuid+'"><div class="list-img"><img src="upload/sshoes/'+list[i].uuid+'_s.jpg" alt=""></div><div class="list-desc"><h3 class="list-name">'+list[i].name+'</h3><div class="list-price"><span class="list-label">预售价格：</span><strong>&yen;'+list[i].price+'</strong></div><div class="list-cat"><span class="list-label">类型：</span><span>'+list[i].type+'</span></div></div></a></li>';
+					}
+					if(_list != ''){
+						oWrap.append(_list);
+						oMore.html('加载更多');
+					}else{
+						oMore.html('已经没有更多了').css({background: 'none'});
+					}
+				}
+			})
+		}else{
+			$('#searchKeyword').val(decodeURI(thisid));
+			$.ajax({
+				url: '/api/search',
+				type: 'GET',
+				dataType: 'json',
+				data: {q: decodeURI(thisid), page: count},
+				success: function(data){
+					var list = data,
+						_list = '';
+					for(i in list){
+						_list += '<li><a href="product.shtml?uuid='+list[i].uuid+'"><div class="list-img"><img src="upload/sshoes/'+list[i].uuid+'_s.jpg" alt=""></div><div class="list-desc"><h3 class="list-name">'+list[i].name+'</h3><div class="list-price"><span class="list-label">预售价格：</span><strong>&yen;'+list[i].price+'</strong></div><div class="list-cat"><span class="list-label">类型：</span><span>'+list[i].type+'</span></div></div></a></li>';
+					}
+					if(_list != ''){
+						oWrap.append(_list);
+						oMore.html('加载更多');
+					}else{
+						oMore.html('已经没有更多了').css({background: 'none'});
+					}
+				}
+			})
+		}
+	}
+	$(function(){
+		/*renderResult();
+		var hash = location.search.split("=");
+		if(thisid!='' || hash.length <=2){
+			$('#searchKeyword').val(decodeURI(thisid));
+		}*/
+		getResult();
+
+		oMore.click(function() {
+			if($(this).html() == '加载更多'){
+				oMore.html('<i class="icon-loading"></i> 加载中...');
+				count++;
+				getResult();
+			}else{
+				return;
+			}
+		});
+
+		$("#searchKeyword").keyup(function(event) {
+			var val = $(this).val();
+			if(val != ""){
+				$("#j_cookie").hide();
+				$.ajax({
+					url: '/api/search_assit',
+					type: 'GET',
+					dataType: 'json',
+					data: {q: val},
+					success: function(data){
+						var list = data;
+						var $searchList;
+						$("#j_search").html('<ul class="search-list j-search"></ul>');
+						$searchList = $("#j_search").find('.search-list');
+						var _list = '';
+						for(i in list){
+							_list += '<li>'+list[i]+'</li>';
+						}
+						$searchList.append(_list);
+					}
+				})
+			}else{
+				$("#j_search").html('');
+				$("#j_cookie").show();
+			}
+		});
+
+		$("#searchBtn").click(function(e){
+			e.preventDefault();
+			var key = $("#searchKeyword").val();
+			if(key != ""){
+				addHistory(key);
+			}
+
+			sessionStorage.setItem('gender','');
+			sessionStorage.setItem('category','');
+			sessionStorage.setItem('brand','');
+			window.location.href = 'search-result.shtml?q='+key;
+		})
+		$('body').on('click', '.search-list li', function(){
+			var key = $(this).html();
+			window.location.href = 'search-result.shtml?q='+key;
+		})
+		$(".search-close").click(function(e){
+			e.preventDefault();
+			var o = $(this);
+			var cf = confirm('确定要删除？');
+			if(cf){
+				if($(this).parents("#j_history").length != 0){
+					var storage = "SearchHistory";
+				}else{
+					var storage = "SearchHot";
+				}
+				deleteStorage(storage);
+			}else{
+				return false;
+			}
+		})
+
+
+		$('#searchKeyword').on('focus', function(){
+			$('#searchPopup').addClass('active');
+		})
+
+		$('.header-back').on('click', function(){
+			window.history.back(-1);
+		})
+	})
+	</script>
+</body>
+</html>

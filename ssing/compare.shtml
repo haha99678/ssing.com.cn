@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="format-detection" content="telephone=no">
+	<title>比鞋</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="header-back"></div>
+		<div class="header-op">
+			<a id="addCompare"><i class="icon-add"></i><span>添加</span></a>
+			<a id="emptyCompare"><i class="icon-trash"></i><span>清空</span></a>
+		</div>
+	</header>
+	<div class="container">
+		<ul class="compare-tit">
+			<li>图片</li>
+			<li>品牌</li>
+			<li>鞋名</li>
+			<li>售价</li>
+			<li>货号</li>
+			<li>运动类别</li>
+			<li>性别</li>
+			<li>主色</li>
+			<li>辅色</li>
+			<li>设计风格</li>
+			<li>设计灵感来源</li>
+			<li>外观配色风格</li>
+			<li>科技配置</li>
+			<li>制鞋材质</li>
+			<li>鞋款材质特性</li>
+			<li>鞋款特殊属性</li>
+			<li>中底硬度系数</li>
+			<li>鞋带种类</li>
+		</ul>
+		<div class="compare-wrap">
+			<div class="compare-list" id="compareList">
+				<!-- <ul class="compare-added">
+					<li><img src="upload/shoe1-sm.jpg" alt=""><span class="close">&times;</span></li>
+					<li>Adidas</li>
+					<li>一号黑 S84052</li>
+					<li>跑鞋</li>
+					<li>男</li>
+					<li>蓝</li>
+					<li>白</li>
+					<li>传统明亮</li>
+					<li>复古风</li>
+					<li><i class="icon-close-grey"></i></li>
+					<li>1200-1900</li>
+					<li>一体化鞋面</li>
+					<li>材料减震</li>
+					<li>签名款</li>
+					<li>LeBron James</li>
+					<li><i class="icon-checked-grey"></i></li>
+				</ul>
+				<ul class="compare-added">
+					<li><img src="upload/shoe2-sm.jpg" alt=""><span class="close">&times;</span></li>
+					<li>Adidas</li>
+					<li>一号黑 S84053</li>
+					<li>跑鞋</li>
+					<li>男</li>
+					<li>绿</li>
+					<li>白</li>
+					<li>传统明亮</li>
+					<li>复古风</li>
+					<li><i class="icon-close-grey"></i></li>
+					<li>1200-1900</li>
+					<li>一体化鞋面</li>
+					<li>材料减震</li>
+					<li>签名款</li>
+					<li>LeBron James</li>
+					<li><i class="icon-checked-grey"></i></li>
+				</ul> -->
+			</div>
+		</div>
+	</div>
+
+	<div class="filter">
+		<div class="filter-close">&times;</div>
+		<div class="filter-dialog" id="filterDialog">
+			<div class="filter-heading">
+				<h3>筛选</h3>
+				<button class="btn" id="filterBtn" data-role="compare">确定</button>
+			</div>
+			<div class="filter-body">
+				<ul class="filter-cats" id="filterCats">
+					<li>
+						<a>
+							<span class="label">性别</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="male"><span>男鞋</span><i class="icon-checked"></i></li>
+							<li data-value="female"><span>女鞋</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+					<li>
+						<a>
+							<span class="label">运动类别</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="Tranning"><span>训练</span><i class="icon-checked"></i></li>
+							<li data-value="Basketball"><span>篮球</span><i class="icon-checked"></i></li>
+							<li data-value="Football"><span>足球</span><i class="icon-checked"></i></li>
+							<li data-value="Running"><span>跑步</span><i class="icon-checked"></i></li>
+							<li data-value="Volleyball"><span>排球</span><i class="icon-checked"></i></li>
+							<li data-value="Tennis"><span>网球</span><i class="icon-checked"></i></li>
+							<li data-value="Ping"><span>乒乓球</span><i class="icon-checked"></i></li>
+							<li data-value="Outdoor"><span>户外</span><i class="icon-checked"></i></li>
+							<li data-value="Skate"><span>滑板</span><i class="icon-checked"></i></li>
+							<li data-value="Walking"><span>健步</span><i class="icon-checked"></i></li>
+							<li data-value="Baseball"><span>棒球</span><i class="icon-checked"></i></li>
+							<li data-value="Leisure"><span>休闲</span><i class="icon-checked"></i></li>
+							<li data-value="Slipper"><span>拖鞋</span><i class="icon-checked"></i></li>
+							<li data-value="Others"><span>其他</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+					<li>
+						<a>
+							<span class="label">品牌分类</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="adidas"><span>adidas</span><i class="icon-checked"></i></li>
+							<li data-value="Nike"><span>Nike</span><i class="icon-checked"></i></li>
+							<li data-value="New Balance"><span>New Balance</span><i class="icon-checked"></i></li>
+							<li data-value="Asics"><span>Asics</span><i class="icon-checked"></i></li>
+							<li data-value="Puma"><span>Puma</span><i class="icon-checked"></i></li>
+							<li data-value="Lining"><span>Lining</span><i class="icon-checked"></i></li>
+							<li data-value="Mizuno"><span>Mizuno</span><i class="icon-checked"></i></li>
+							<li data-value="Air Jordan"><span>Air Jordan</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="pro-list">
+				<ul id="j_result">
+				</ul>
+				<div class="loading-more" id="j_more">加载更多</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/filter.js"></script>
+	<script>
+	// var thisid=location.search.split("=")[1].split("&")[0];
+	var oWrap = $('#j_result'),
+		oMore = $('#j_more'),
+		count = 1;
+
+	function getResult(){
+		var gender = sessionStorage.getItem('gender');
+		var category = sessionStorage.getItem('category');
+		var brand = sessionStorage.getItem('brand');
+		$.ajax({
+			url: '/api/filter_search',
+			type: 'GET',
+			dataType: 'json',
+			data: {page: count, gender: gender, category: category, brand: brand},
+			success: function(data){
+				var list = data,
+					_list = '';
+				for(i in list){
+					_list += '<li><a href="'+list[i].uuid+'"><div class="list-img"><img src="upload/sshoes/'+list[i].uuid+'_s.jpg" alt=""></div><div class="list-desc"><h3 class="list-name">'+list[i].name+'</h3><div class="list-price"><span class="list-label">预售价格：</span><strong>&yen;'+list[i].price+'</strong></div><div class="list-cat"><span class="list-label">类型：</span><span>'+list[i].type+'</span></div></div></a></li>';
+				}
+				oWrap.html(_list);
+				oMore.html('加载更多');
+			}
+		})
+	}
+
+	function ajaxProduct(uuid){
+		$.ajax({
+			url: '/api/product',
+			type: 'GET',
+			dataType: 'json',
+			data: {uuid: uuid},
+			success: function(data){
+				var list = data,
+					_list = '';
+
+				_list = '<ul class="compare-added">'+
+							'<li title="图片"><img src="upload/sshoes/'+list.uuid+'_s.jpg"><span class="close">&times;</span></li>'+
+							'<li title="品牌">'+list.brand+'</li>'+
+							'<li title="鞋名">'+list.name+'</li>'+
+							'<li title="售价">'+list.price+'</li>'+
+							'<li title="货号">'+list.pnum+'</li>'+
+							'<li title="运动类别">'+list.category+'</li>'+
+							'<li title="性别">'+list.gender+'</li>'+
+							'<li title="主色">'+list.colors+'</li>'+
+							'<li title="辅色"></li>'+
+							'<li title="设计风格"></li>'+
+							'<li title="设计灵感来源"></li>'+
+							'<li title="外观配色风格"></li>'+
+							'<li title="科技配置"></li>'+
+							'<li title="制鞋材质"></li>'+
+							'<li title="鞋款材质特性"></li>'+
+							'<li title="鞋款特殊属性"></li>'+
+							'<li title="中底硬度系数"></li>'+
+							'<li title="鞋带种类"></li>'+
+						'</ul>';
+				$('#compareList').append(_list);
+				$('html').removeClass('open');
+				$('.filter-dialog .pro-list').hide();
+			}
+		})
+	}
+	$(function(){
+		//获取鞋子uuid
+		var uuidArr = sessionStorage.getItem('uuid').split(',');
+		for(var i=0; i<uuidArr.length; i++){
+			ajaxProduct(uuidArr[i]);
+		}
+
+		//添加比较
+		$('#addCompare').on('click', function(e){
+			e.preventDefault();
+			if($('#compareList').find('.compare-added').length >= 2){
+				alert('最多可添加两双进行比较');
+			}else{
+				$('html').addClass('open');
+			}
+		})
+
+		$('#emptyCompare').on('click', function(){
+			$('#compareList').empty();
+		})
+
+		$('#compareList').on('click', '.list-remove', function(){
+			$(this).parent('li').remove();
+		})
+		oMore.click(function() {
+			if($(this).html() == '加载更多'){
+				oMore.html('<i class="icon-loading"></i> 加载中...');
+				count++;
+				getResult();
+			}else{
+				return;
+			}
+		});
+		oWrap.on('click', 'a', function(e){
+			e.preventDefault();
+			var uuid = $(this).attr('href');
+			ajaxProduct(uuid);
+		})
+
+
+		$('#compareList').on('click', '.close', function(){
+			$(this).parents('.compare-added').remove();
+		})
+
+		$('.header-back').on('click', function(){
+			window.history.back(-1);
+		})
+	})
+	</script>
+</body>
+</html>

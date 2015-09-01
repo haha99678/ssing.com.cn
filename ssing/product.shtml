@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="format-detection" content="telephone=no">
+	<title>单品页</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="logo"></div>
+		<a class="header-link"><i class="icon-bars"></i></a>
+	</header>
+	<div class="container">
+		<div class="pro">
+			<div id="j_pro"></div>
+			<div class="pro-operate">
+				<ul class="op-tabs" id="opTabs">
+					<li data-target="#share"><em><i class="icon-share"></i></em><span>分享</span></li>
+					<li data-target="#comment" data-type="1"><em><i class="icon-hand-up"></i></em><span>好评</span></li>
+					<li data-target="#comment" data-type="2"><em><i class="icon-hand-down"></i></em><span>吐槽</span></li>
+					<li data-target="#follow"><em><i class="icon-star"></i></em><span>关注</span></li>
+					<li data-target="#compare"><em><i class="icon-compare"></i></em><span>比鞋</span></li>
+				</ul>
+				<div class="op-arrow" id="opArrow"><em></em></div>
+				<div class="op-content" id="opContent">
+					<div class="tab-content" id="share">
+						<ul class="tab-share">
+							<li>
+								<a data-sns="sina">
+									<em><i class="icon-tsina"></i></em>
+									<span>新浪微博</span>
+								</a>
+							</li>
+							<li>
+								<a data-sns="qq">
+									<em><i class="icon-tqq"></i></em>
+									<span>腾讯微博</span>
+								</a>
+							</li>
+							<li>
+								<a data-sns="qz">
+									<em><i class="icon-qzone"></i></em>
+									<span>QQ空间</span>
+								</a>
+							</li>
+							<li>
+								<a data-sns="kaixin">
+									<em><i class="icon-kaixin"></i></em>
+									<span>开心网</span>
+								</a>
+							</li>
+							<li>
+								<a data-sns="douban">
+									<em><i class="icon-douban"></i></em>
+									<span>豆瓣网</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="tab-content" id="comment">
+						<div class="tab-cmt">
+							<div class="cmt-item cmt-reply" data-id="0">
+								<form class="cmt-form" action="/api/addComment" method="post" enctype="multipart/form-data">
+									<input type="text" name="uuid" hidden>
+									<input type="text" name="type" hidden>
+									<textarea placeholder="文明上网理性发言" max-length="140" name="content"></textarea>
+									<div class="cmt-reply-footer">
+										<div class="cmt-upload">
+											<label for="uploadFile"><i class="icon-camera"></i></label>
+											<input id="uploadFile" name="image" type="file" accept="image/gif, image/jpeg, image/jpg, image/png">
+										</div>
+										<div class="cmt-func">
+											<!-- <span class="cmt-num">0/140</span> -->
+											<button class="btn" type="submit" name="cmtSubmit">确定</button>
+										</div>
+									</div>
+									<div class="clearfix" id="uploadImgs"></div>
+								</form>
+							</div>
+							<div class="cmt-list" id="cmtList">
+								<!--
+								<div class="cmt-item">
+									<div class="cmt-face"><a href=""><img alt="" src="upload/face2.jpg"></a></div>
+									<div class="cmt-info">
+										<p class="cmt-by"><a href="">爱新觉罗 <span class="level">Lv 26</span></a></p>
+										<p class="cmt-cnt">耐克就赢在，深知这是看脸的时代</p>
+										<div class="cmt-msg">
+											<span class="floor">1F</span>
+											<a href="">沉鱼Cheny</a> 说：
+											<p>为什么耐克的鞋鞋都这么好看呢，大爱啊，哈哈哈哈哈！！！</p>
+										</div>
+										<p class="cmt-op">
+											<span class="date">2015-03-26</span>
+											<a href=""><i class="icon-talk"></i><span>回复</span></a>
+											<a href=""><i class="icon-like"></i><span>顶(12)</span></a>
+											<a href=""><i class="icon-warn"></i><span>举报</span></a>
+										</p>
+									</div>
+									<div class="cmt-floor">3F</div>
+								</div> -->
+							</div>
+							<a class="cmt-more" id="cmtMore">点击加载更多</a>
+						</div>
+					</div>
+					<div class="tab-content" id="follow">
+						<div class="tab-follow">
+							<i class="icon-coin"></i>
+							<span>关注成功！</span>
+						</div>
+					</div>
+					<div class="tab-content" id="compare">
+						<div class="tab-compare">
+							<div class="compare-operate">
+								<a id="addCompare"><i class="icon-add"></i><span>添加</span></a>
+								<a id="emptyCompare"><i class="icon-trash"></i><span>清空</span></a>
+							</div>
+							<ul class="pro-list" id="compareList">
+								<!-- <li>
+									<div class="list-remove">&times;</div>
+									<a href="#">
+										<div class="list-img"><img alt="" src="upload/shoe1-sm.jpg"></div>
+										<div class="list-desc">
+											<h3 class="list-name">adidas 阿迪达斯 跑步 男子 跑步鞋 一号黑 S84052</h3>
+											<div class="list-price"><span class="list-label">预售价格：</span><strong>¥1239.00</strong></div>
+											<div class="list-cat"><span class="list-label">类型：</span><span>跑步系列</span></div>
+										</div>
+									</a>
+								</li> -->
+							</ul>
+							<a class="btn compare-btn" id="compareBtn">开始比鞋</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="pro-tags" id="j_tags">
+				<span>很爽快很爽快</span>
+				<span>弹力好</span>
+				<span>支撑性好</span>
+				<span>红色篮球运动</span>
+				<span>Hyperfuse+Hyperposite</span>
+			</div> -->
+		</div>
+		<div class="panel">
+			<div class="panel-heading">猜你可能喜欢如下鞋款</div>
+			<ul class="recommend-list" id="followedProducts">
+				<!-- <li>
+					<a href="">
+						<div class="rec-img"><img src="upload/shoe1-sm.jpg" alt=""></div>
+						<h3 class="rec-title">MERCURIAL VELOCELL AG-R CR 男子足球鞋</h3>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="rec-img"><img src="upload/shoe2-sm.jpg" alt=""></div>
+						<h3 class="rec-title">迪卡侬新款跑步鞋 缓震舒适运动鞋 KALENJI</h3>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="rec-img"><img src="upload/shoe3-sm.jpg" alt=""></div>
+						<h3 class="rec-title">adidas boost 跑步鞋 一号黑 M29526</h3>
+					</a>
+				</li> -->
+			</ul>
+		</div>
+		<div class="panel">
+			<div class="panel-heading">他们也关注了这款鞋</div>
+			<div class="member-container">
+			    <ul class="member-list" id="followers">
+			    </ul>
+		    </div>
+		</div>
+	</div>
+
+	<div class="side-nav">
+		<ul>
+			<li><a href="search.shtml">搜索鞋库</a></li>
+			<li><a href="/ssing_jx">智能荐鞋</a></li>
+			<li><a href="news.shtml">潮流资讯</a></li>
+			<li><a href="news-expert.shtml">深度解读</a></li>
+			<li><a href="events.shtml">最新活动</a></li>
+		</ul>
+	</div>
+
+	<div class="filter">
+		<div class="filter-close">&times;</div>
+		<div class="filter-dialog" id="filterDialog">
+			<div class="filter-heading">
+				<h3>筛选</h3>
+				<button class="btn" id="filterBtn" data-role="compare">确定</button>
+			</div>
+			<div class="filter-body">
+				<ul class="filter-cats" id="filterCats">
+					<li>
+						<a>
+							<span class="label">性别</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="male"><span>男鞋</span><i class="icon-checked"></i></li>
+							<li data-value="female"><span>女鞋</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+					<li>
+						<a>
+							<span class="label">运动类别</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="Tranning"><span>训练</span><i class="icon-checked"></i></li>
+							<li data-value="Basketball"><span>篮球</span><i class="icon-checked"></i></li>
+							<li data-value="Football"><span>足球</span><i class="icon-checked"></i></li>
+							<li data-value="Running"><span>跑步</span><i class="icon-checked"></i></li>
+							<li data-value="Volleyball"><span>排球</span><i class="icon-checked"></i></li>
+							<li data-value="Tennis"><span>网球</span><i class="icon-checked"></i></li>
+							<li data-value="Ping"><span>乒乓球</span><i class="icon-checked"></i></li>
+							<li data-value="Outdoor"><span>户外</span><i class="icon-checked"></i></li>
+							<li data-value="Skate"><span>滑板</span><i class="icon-checked"></i></li>
+							<li data-value="Walking"><span>健步</span><i class="icon-checked"></i></li>
+							<li data-value="Baseball"><span>棒球</span><i class="icon-checked"></i></li>
+							<li data-value="Leisure"><span>休闲</span><i class="icon-checked"></i></li>
+							<li data-value="Slipper"><span>拖鞋</span><i class="icon-checked"></i></li>
+							<li data-value="Others"><span>其他</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+					<li>
+						<a>
+							<span class="label">品牌分类</span>
+							<i class="icon-arrow-down"></i>
+							<small class="label f-value" data-value="">全部</small>
+						</a>
+						<ul class="filter-sub">
+							<li data-value=""><span>全部</span><i class="icon-checked"></i></li>
+							<li data-value="adidas"><span>adidas</span><i class="icon-checked"></i></li>
+							<li data-value="Nike"><span>Nike</span><i class="icon-checked"></i></li>
+							<li data-value="New Balance"><span>New Balance</span><i class="icon-checked"></i></li>
+							<li data-value="Asics"><span>Asics</span><i class="icon-checked"></i></li>
+							<li data-value="Puma"><span>Puma</span><i class="icon-checked"></i></li>
+							<li data-value="Lining"><span>Lining</span><i class="icon-checked"></i></li>
+							<li data-value="Mizuno"><span>Mizuno</span><i class="icon-checked"></i></li>
+							<li data-value="Air Jordan"><span>Air Jordan</span><i class="icon-checked"></i></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="pro-list">
+				<ul id="j_result">
+				</ul>
+				<div class="loading-more" id="j_more">加载更多</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.form.js"></script>
+	<script src="js/filter.js"></script>
+	<script>
+	var thisid=location.search.split("=")[1].split("&")[0];
+	var oWrap = $('#j_result'),
+		oMore = $('#j_more'),
+		count = 1;
+
+	function checkWXLogin() {
+	    b = getCookie('b')
+	    if (b == null || b == '') {
+	        var url = escape(window.location.href);
+	        console.log(url);
+	            window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf10d7f93c75bf11c&redirect_uri=http%3A%2F%2Fssing.com.cn/api%2Fwxlogin&response_type=code&scope=snsapi_login&state="+url
+	        	//window.location.href = "https://open.weixin.qq.com/connect/qrconnect?appid=wxf10d7f93c75bf11c&redirect_uri=http%3A%2F%2Fssing.com.cn/api%2Fwxlogin&response_type=code&scope=snsapi_login&state="+url;
+	        return false;
+	    }else{
+	    	return true;
+	    }
+	}
+
+	function getCookie(c_name) {
+	    if (document.cookie.length > 0) {
+	        c_start = document.cookie.indexOf(c_name + "=")
+	        if (c_start != -1) {
+	            c_start = c_start + c_name.length + 1
+	            c_end = document.cookie.indexOf(";", c_start)
+	            if (c_end == -1)
+	                c_end = document.cookie.length
+	            return unescape(document.cookie.substring(c_start, c_end))
+	        }
+	    }
+	    return ""
+	}
+
+	function getResult(){
+		var gender = sessionStorage.getItem('gender');
+		var category = sessionStorage.getItem('category');
+		var brand = sessionStorage.getItem('brand');
+		$.ajax({
+			url: '/api/filter_search',
+			type: 'GET',
+			dataType: 'json',
+			data: {page: count, gender: gender, category: category, brand: brand},
+			success: function(data){
+				var list = data,
+					_list = '';
+				for(i in list){
+					_list += '<li><a href="'+list[i].uuid+'"><div class="list-img"><img src="upload/sshoes/'+list[i].uuid+'_s.jpg" alt=""></div><div class="list-desc"><h3 class="list-name">'+list[i].name+'</h3><div class="list-price"><span class="list-label">预售价格：</span><strong>&yen;'+list[i].price+'</strong></div><div class="list-cat"><span class="list-label">类型：</span><span>'+list[i].type+'</span></div></div></a></li>';
+				}
+				oWrap.html(_list);
+				oMore.html('加载更多');
+			}
+		})
+	}
+
+	$(function(){
+		//鞋子信息
+		$.ajax({
+			url: '/api/product',
+			type: 'GET',
+			dataType: 'json',
+			data: {uuid: thisid},
+			success: function(data){
+				var list = data,
+					_list = '',
+					_tags;
+				var getLabels = function(){
+					var labels = [];
+					$.each(list.parameterMap, function(index, val) {
+						var _labels = '<li><span class="label">'+index+'</span><span>'+val+'</span></li>';
+						labels.push(_labels);
+					});
+					return labels.join('');
+				};
+
+				_list = '<div class="pro-img"><img src="upload/lshoes/'+list.uuid+'_l.jpg"></div><div class="pro-info clearfix"><h2 class="pro-name"><strong>'+list.name+'</strong></h2><div class="pro-desc"><i class="icon-tip"></i> '+list.slogan+'</div><div class="pro-data active"><ul class="data-list"><li><span class="label">品牌</span><span>'+list.brand+'</span></li><li><span class="label">货号</span><span>'+list.pnum+'</span></li><li><span class="label">类别</span><span>'+list.category+'</span></li><li><span class="label">价格</span><span>'+list.price+'</span></li><li><span class="label">颜色</span><span>'+list.colors.join()+'</span></li>'+getLabels()+'</ul></div><div class="pro-expand"><span>点击收起参数</span><b><em><i>&darr;</i></em></b></div></div>';
+
+				_compareList = '<li><div class="list-remove">&times;</div><a href="'+list.uuid+'"><div class="list-img"><img src="upload/sshoes/'+list.uuid+'_s.jpg"></div><div class="list-desc"><h3 class="list-name">'+list.name+' '+list.pnum+'</h3><div class="list-price"><span class="list-label">预售价格：</span><strong>¥'+list.price+'.00</strong></div><div class="list-cat"><span class="list-label">类型：</span><span>'+list.category+'</span></div></div></a></li>'
+				$('#j_pro').html(_list);
+				document.title = list.name;
+				$('input[name=uuid]').val(thisid);
+
+				$('#compareList').html(_compareList);
+			}
+		})
+
+		//比较
+		$('#addCompare').on('click', function(e){
+			e.preventDefault();
+			$('html').addClass('open');
+		})
+		$('#emptyCompare').on('click', function(e){
+			e.preventDefault();
+			$('#compareList').html('');
+		})
+		$('#compareList').on('click', '.list-remove', function(){
+			$(this).parent('li').remove();
+		})
+		oMore.click(function() {
+			if($(this).html() == '加载更多'){
+				oMore.html('<i class="icon-loading"></i> 加载中...');
+				count++;
+				getResult();
+			}else{
+				return;
+			}
+		});
+		oWrap.on('click', 'a', function(e){
+			e.preventDefault();
+			var uuid = $(this).attr('href');
+			$.ajax({
+				url: '/api/product',
+				type: 'GET',
+				dataType: 'json',
+				data: {uuid: uuid},
+				success: function(data){
+					var list = data,
+						_list = '';
+
+					_list = '<li><div class="list-remove">&times;</div><a href="'+list.uuid+'"><div class="list-img"><img src="upload/shoes/'+list.uuid+'.png"></div><div class="list-desc"><h3 class="list-name">'+list.name+' '+list.pnum+'</h3><div class="list-price"><span class="list-label">预售价格：</span><strong>¥'+list.price+'.00</strong></div><div class="list-cat"><span class="list-label">类型：</span><span>'+list.category+'</span></div></div></a></li>'
+
+					$('#compareList').append(_list);
+					$('html').removeClass('open');
+					$('.filter-dialog .pro-list').hide();
+				}
+			})
+		})
+		$('#compareBtn').on('click', function(e){
+			e.preventDefault();
+			if($('#compareList li').length != 2){
+				alert('请选择2双鞋进行比较');
+			}else{
+				var uuidArr = [];
+				$('#compareList li').each(function(){
+					var href = $(this).find('a').attr('href');
+					uuidArr.push(href);
+				})
+				sessionStorage.setItem('uuid', uuidArr);
+				window.location.href = 'compare.shtml';
+			}
+		})
+
+
+
+		//猜你喜欢
+		$.ajax({
+			url: '/api/may_like',
+			type: 'GET',
+			dataType: 'json',
+			data: {uuid: thisid},
+			success: function(data){
+				var list = data,
+					_list = '',
+					i = 0;
+				for(i in list){
+					_list += '<li><a href="product.shtml?uuid='+list[i].uuid+'"><div class="rec-img"><img src="upload/sshoes/'+list[i].uuid+'_s.jpg" alt=""></div><h3 class="rec-title">'+list[i].name+'</h3></a></li>';
+				}
+				$('#followedProducts').html(_list);
+			}
+		})
+
+		//他们也关注了
+		var $followers = $('#followers');
+		$.ajax({
+			url: '/api/getFollowers',
+			type: 'GET',
+			dataType: 'json',
+			data: {uuid: thisid},
+			success: function(data){
+				var list = data,
+					_list = '',
+					i = 0;
+				for(i in list){
+					_list += '<li><a href="#"><div class="member-face"><img src="'+list[i].headimgurl+'" alt=""></div><span>'+list[i].nickname+'</span><span class="level"></span></a></li>'
+				}
+				$followers.html(_list);
+				var $lis = $followers.find('li');
+				$followers.width(($lis.width()+7)*$lis.length);
+			}
+		})
+		
+		$('#j_pro').on('click', '.pro-info', function(){
+			$(this).toggleClass('active');
+		})
+
+		$('#uploadFile').on('change', function(e){
+			var file = this.files[0];
+			if(file){
+				var reader = new FileReader();
+				reader.onload = function(){
+					// $('<div class="upload-img"><span class="img"><img src="'+this.result+'"></span><a class="img-del">&times;</a></div>').appendTo('#uploadImgs');
+					$('#uploadImgs').html('<div class="upload-img"><span class="img"><img src="'+this.result+'"></span><a class="img-del">&times;</a></div>');
+				}
+				reader.readAsDataURL(file);
+			}
+		})
+		$('#uploadImgs').on('click', '.img-del', function(){
+			$(this).parent('.upload-img').remove();
+		})
+
+
+		$('#opTabs li').on('click', function(){
+			var $this = $(this);
+			var target = $this.data('target');			
+			var i = $this.index();
+			$this.addClass('active').siblings('li').removeClass('active');
+			switch(target)
+			{
+				case '#follow':
+					if(checkWXLogin()){
+						$.ajax({
+							url: '/api/addFollow',
+							type: 'GET',
+							dataType: 'json',
+							data: {uuid: thisid},
+							success: function(data){
+								//关注成功！，积分+1
+								if(data.msg == 'followed'){
+									alert('您已经关注过了！');
+								}
+							}
+						})
+					}
+					break;
+				case '#comment':
+					if(checkWXLogin()){
+						var type = $(this).data('type');
+						$('.cmt-item').data('type', type)
+						$('#cmtMore').data('type', type).data('page', 1);
+						$('input[name=type]').val(type);
+						$('#cmtList').empty();
+						showComments(1, type);
+					}
+					break;
+			}
+			$('#opArrow').show();
+			$('#opArrow em').css({
+				marginLeft: 10+20*i+'%'
+			});
+			$(target).addClass('active').siblings('.tab-content').removeClass('active');
+		})
+
+
+		//分享
+		var shareSns = function(site) {
+			var title = '天空飘过五个字儿，“这鞋是个啥玩意儿”，别和小编讲数学，咱们聊聊这款鞋。【'+document.title+'】，赞吗？';
+			var host = window.location.origin+'/ssing/';
+			var url = window.location.href;
+			var pic = host+$('body').find('.pro-img img').attr('src');
+
+			e = encodeURIComponent;
+			url = e(url);
+			title = e(title);
+			pic = e(pic);
+
+			if (site == "sina") {
+				window.open("http://service.weibo.com/share/share.php?url=" + url + "&appkey=&title=" + title + "&pic=" + pic + "&ralateUid=&language=zh_cn", "_blank");
+			} else if (site == "qq") {
+				window.open("http://share.v.t.qq.com/index.php?c=share&a=index&title=" + title + "&url=" + url + "&appkey=&site=&pic=" + pic, "_blank");
+			} else if (site == "qz") {
+				window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + url + "&title=" + title + "&pics=" + pic+"&summary=%20", "_blank");
+			} else if (site == "ren") {
+				window.open('http://www.connect.renren.com/share/sharer?url=' + url + '&title=' + title, '_blank');
+			} else if (site == "kaixin") {
+				window.open('http://www.kaixin001.com/repaste/share.php?rurl=' + url + '&rtitle=' + title, '_blank');
+			} else if (site == "douban") {
+				window.open('http://www.douban.com/share/service?href=' + url + '&title=' + title + "&image=" + pic, '_blank');
+			}
+
+		}
+
+		$('a[data-sns]').on('click', function(e){
+			e.preventDefault();
+			var site = $(this).data('sns');
+			shareSns(site);
+		})
+
+
+		//评论相关
+		/*添加评论*/
+		// $('.cmt-form').ajaxForm(function(){
+		// 	alert('评论成功')
+		// })
+		$('#comment').on('click', 'button[name=cmtSubmit]', function(){
+			var $parents = $(this).parents('.cmt-item');
+			var cmtContent = $parents.find('textarea[name=content]').val();
+			var cmtType = $parents.data('type');
+			var cmtId = $parents.data('id');
+			if (cmtContent == '') {
+				alert('说些什么吧！');
+				return false;
+			}else{
+				$('.cmt-form').ajaxForm(function(){
+					alert('评论成功');
+					$parents.find('textarea[name=content]').val('');
+					$('#cmtList').empty();
+					showComments(1, cmtType);
+				})
+				// $.ajax({
+				// 	url: '/api/addComment',
+				// 	type: 'POST',
+				// 	dataType: 'json',
+				// 	data: {uuid:thisid, type:cmtType, content:cmtContent, target: cmtId},
+				// 	success: function(data){
+				// 		// console.log(data);
+				// 		alert('评论成功');
+				// 	}
+				// })
+			}
+		})
+		/*评论回复*/
+		$('#comment').on('click', '.reply', function(e){
+			e.preventDefault();
+			var $parents = $(this).parents('.cmt-item');
+			if($parents.find('.cmt-reply').length <= 0){
+				var _reply = '<div class="cmt-reply"><textarea placeholder="文明上网理性发言" max-length="140" name="content"></textarea><div class="cmt-reply-footer"><div class="cmt-func"><span class="cmt-num">0/140</span> <button class="btn" name="cmtSubmit">确定</button></div></div></div>'
+				$parents.append(_reply);
+			}
+		})
+		/*评论顶*/
+		$('#comment').on('click', '.like', function(e){
+			e.preventDefault();
+			var id = $(this).parents('.cmt-item').data('id');
+			var $count =  $(this).find('b');
+			var count = parseInt($count.text());
+			$.ajax({
+				url: '/api/addDing',
+				type: 'GET',
+				dataType: 'json',
+				data: {id: id, uuid: thisid},
+				success: function(data){
+					if(data.msg == 'success'){
+						$count.html(count+1);
+					}else if(data.msg == 'dinged'){
+						alert('您已经顶过！');
+					}
+				}
+			})
+		})
+		/*显示评论*/
+		var showComments = function(page, type){
+			$.ajax({
+				url: '/api/comments',
+				type: 'GET',
+				dataType: 'json',
+				data: {uuid: thisid, type: type, page: page},
+				success: function(data){
+					var list = data,
+						_list = '',
+						i = 0;
+					// var listArr = [];
+					// var len = list.length;
+					for(i in list){
+						// if(list[i].target != '0'){
+						// 	_list = '<div class="cmt-msg" data-type="'+list[i].type+'" data-target="'+list[i].target+'" data-id="'+list[i].id+'"><a href="">'+list[i].nickname+'</a> 说：<p>'+list[i].content+'</p></div>';
+						// }else{
+							if(list[i].uuidImg == null){
+								_list += '<div class="cmt-item" data-type="'+list[i].type+'" data-target="'+list[i].target+'" data-id="'+list[i].id+'"><div class="cmt-face"><a href=""><img alt="" src="'+list[i].headimgurl+'"></a></div><div class="cmt-info"><p class="cmt-by"><a href="">'+list[i].nickname+' <span class="level"></span></a></p><p class="cmt-cnt">'+list[i].content+'</p><p class="cmt-op"><span class="date">'+list[i].create_time+'</span><a class="reply"><i class="icon-talk"></i><span>回复</span></a><a class="like"><i class="icon-like"></i><span>顶(<b>'+list[i].ding+'</b>)</span></a><a class="report"><i class="icon-warn"></i><span>举报</span></a></p></div><div class="cmt-floor">'+list[i].floor+'F</div></div>';
+							}
+							else{
+								_list += '<div class="cmt-item" data-type="'+list[i].type+'" data-target="'+list[i].target+'" data-id="'+list[i].id+'"><div class="cmt-face"><a href=""><img alt="" src="'+list[i].headimgurl+'"></a></div><div class="cmt-info"><p class="cmt-by"><a href="">'+list[i].nickname+' <span class="level"></span></a></p><p class="cmt-cnt">'+list[i].content+'</p><p class="cmt-img"><img src="upload/comments/'+list[i].uuidImg+'"></p><p class="cmt-op"><span class="date">'+list[i].create_time+'</span><a class="reply"><i class="icon-talk"></i><span>回复</span></a><a class="like"><i class="icon-like"></i><span>顶(<b>'+list[i].ding+'</b>)</span></a><a class="report"><i class="icon-warn"></i><span>举报</span></a></p></div><div class="cmt-floor">'+list[i].floor+'F</div></div>';
+							// var _msg = '<div class="cmt-msg"><a href="">沉鱼Cheny</a> 说：<p>为什么耐克的鞋鞋都这么好看呢，大爱啊，哈哈哈哈哈！！！</p></div>';
+							// $('.cmt-item[data-id="'+list[i].target+'"]').find('.cmt-info').append(_msg);
+							}
+						// }
+						// listArr.push(_list);
+					}
+					if(_list != ''){
+						$('#cmtList').append(_list);
+						$('#cmtMore').html('加载更多');
+					}else{
+						$('#cmtMore').html('已经没有更多了').css({background: 'none'});
+					}
+					/*$.each(listArr, function(index, val) {
+						var target = $(val).data('target');
+						var id = $(val).data('id');
+						if(target != 0){
+							console.log(val);
+						}
+					});*/
+					// $('#cmtList').append(listArr);
+				}
+			})
+		}
+
+		$('#cmtMore').on('click', function(e){
+			e.preventDefault();
+			var $this = $(this);
+			var type = $this.data('type');
+			var page = $this.data('page');
+			var newPage = parseInt(page)+1;
+			$this.data('page', newPage);
+			showComments(newPage, type);
+		})
+
+
+		$('.header-link').on('click', function(e){
+			e.preventDefault();
+			$('html').toggleClass('side-open');
+		})
+	})
+	</script>
+</body>
+</html>

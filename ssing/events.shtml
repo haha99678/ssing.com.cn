@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="format-detection" content="telephone=no">
+	<title>活动专区</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="logo"></div>
+		<a class="header-link"><i class="icon-bars"></i></a>
+	</header>
+	<div class="container">
+		<div id="j_items" class="clearfix">
+			<div class="event-item">
+				<a href="http://mp.weixin.qq.com/s?__biz=MzIyMzAyMjc2Mw==&mid=215221037&idx=2&sn=4fb41ed6084770d00d1384ca7af5ce27#rd"><img src="upload/e3.jpg" alt=""></a>
+			</div>
+			<div class="event-item">
+				<a href="http://mp.weixin.qq.com/s?__biz=MzIyMzAyMjc2Mw==&mid=215159713&idx=1&sn=04e7b8525968260f27bcdcfc12a7ff9c&scene=0#rd"><img src="upload/e4.jpg" alt=""></a>
+			</div>
+			<div class="event-item">
+				<a href="http://mp.weixin.qq.com/s?__biz=MzIyMzAyMjc2Mw==&mid=215118170&idx=1&sn=a805c9f80af05acd04d39c031b52af25&scene=1&from=singlemessage&isappinstalled=0#rd"><img src="upload/e1.jpg" alt=""></a>
+			</div>
+		</div>
+		<!-- <div id="j_more" class="loading-more">加载更多</div> -->
+	</div>
+	<div class="side-nav">
+		<ul>
+			<li><a href="search.shtml">搜索鞋库</a></li>
+			<li><a href="/ssing_jx">智能荐鞋</a></li>
+			<li><a href="news.shtml">潮流资讯</a></li>
+			<li><a href="news-expert.shtml">深度解读</a></li>
+			<li><a href="events.shtml">最新活动</a></li>
+		</ul>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script>
+	$(function(){
+		var oWrap = $('#j_items'),
+			oMore = $('#j_more'),
+			count = 0;
+		var ajaxContent = function(){
+			$.ajax({
+				url: '/api/news',
+				type: 'GET',
+				dataType: 'json',
+				data: {type:'2', page:count},
+				timeout: 10000,
+				success: function(data){
+					var list = data,
+						_list = '',
+						i = 0;
+					for(i in list){
+						_list += '<div class="expert-item"><a href="'+list[i].wechatURL+'"><div class="img"><img src="upload/news/'+list[i].id+'.jpg" alt=""><div class="info"><h3>'+list[i].title+'</h3></div></div></a></div>';
+					}
+					oWrap.append(_list);
+					oMore.html('加载更多');
+				},
+				error: function(xhr, type){
+					oMore.html('加载更多');
+					alert("您的网络不给力,请点击重试!");
+				}
+			})
+		}
+		// ajaxContent();
+		oMore.click(function() {
+			if($(this).html() == '加载更多'){
+				oMore.html('<i class="icon-loading"></i> 加载中...');
+				count++;
+				ajaxContent();
+			}else{
+				return;
+			}
+		});
+		$('.header-link').on('click', function(e){
+			e.preventDefault();
+			$('html').toggleClass('open side-open');
+		})
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"  />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>履型者</title>
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="loading" id="j_loading">
+		<div class="spinner">
+		  <div class="spinner-container container1">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		  <div class="spinner-container container2">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		  <div class="spinner-container container3">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		</div>
+	</div>
+	
+	<div class="swiper-container swiper-vertical">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide swiper-no-swiping">
+	        	<div class="sec first">
+	        		<div class="screen">
+	        			<div class="tip">已帮助86439位用户找到心仪的球鞋</div>
+	        			<div class="shoe"></div>
+	        			<div class="s1-t1"></div>
+	        			<div class="s1-t2"></div>
+	        			<div class="s1-t3"></div>
+	        			<a class="btn" id="start">开启探索</a>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide swiper-no-swiping">
+	        	<div class="sec">
+	        		<div class="screen">
+	        			<div class="s2-t1"></div>
+	        			<div class="s2-t2"></div>
+	        			<form class="form">
+	        				<div class="form-group">
+	        					<label>性别</label>
+								<div class="radio-form">
+									<div class="radio">
+										<input type="radio" name="sex" id="male" checked>
+										<label for="male">男</label>
+									</div>
+									<div class="radio">
+										<input type="radio" name="sex" id="female">
+										<label for="female">女</label>
+									</div>
+								</div>
+	        				</div>
+	        				<div class="form-group">
+	        					<label>身高（cm）</label>
+	        					<input type="number" name="height" placeholder="请输入您的身高">
+	        				</div>
+	        				<div class="form-group">
+	        					<label>体重（kg）</label>
+	        					<input type="number" name="weight" placeholder="请输入您的体重">
+	        				</div>
+	        				<div class="form-group">
+	        					<label>鞋码（cm）</label>
+	        					<select name="size">
+	        						<option value="35">欧码EUR：35 | 脚长：22.5CM</option>
+	        						<option value="36">欧码EUR：36 | 脚长：23CM</option>
+	        						<option value="37">欧码EUR：37 | 脚长：23.5CM</option>
+	        						<option value="38">欧码EUR：38 | 脚长：24CM</option>
+	        						<option value="39">欧码EUR：39 | 脚长：24.5CM</option>
+	        						<option value="40">欧码EUR：40 | 脚长：25CM</option>
+	        						<option value="41">欧码EUR：41 | 脚长：25.5CM</option>
+	        						<option value="42">欧码EUR：42 | 脚长：26CM</option>
+	        						<option value="43">欧码EUR：43 | 脚长：26.5CM</option>
+	        						<option value="44">欧码EUR：44 | 脚长：27CM</option>
+	        						<option value="45">欧码EUR：45 | 脚长：27.5CM</option>
+	        						<option value="46">欧码EUR：46 | 脚长：28CM</option>
+	        					</select>
+	        				</div>
+	        				<div class="form-group">
+	        					<a class="btn" id="firstQuestion">进入专属测试</a>
+	        				</div>
+	        			</form>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide swiper-no-swiping">
+	        	<div class="tip" id="tip">
+	        		<div class="screen">
+	        			<div class="txt"></div>
+	        			<div class="hand"></div>
+	        		</div>
+	        	</div>
+	        	<div class="sec">
+	        		<div class="screen">
+	        			<h2 class="question" id="question"></h2>
+	        			<div class="answers" id="answers"></div>
+	        			<a class="btn" id="next" data-num="1">下一题</a>
+	        			<div class="recommend">
+	        				<div class="rec-tit"><b>系统第<span id="step">一</span>轮分析</b>以下鞋款也许符合你的要求</div>
+	        				<div class="rec-list">
+	        					<ul id="recList"></ul>
+	        				</div>
+	        			</div>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide swiper-no-swiping">
+	        	<div class="sec last">
+	        		<div class="screen">
+	        			<div class="s3-t1"></div>
+	        			<div class="s3-t2"></div>
+	        			<div class="s3-t3"></div>
+	        			<div class="shoes">
+	        				<ul id="resultList">
+	        					<li>
+	        						<img src="upload/shoe-big.png" alt="">
+	        						<h3>Adidas galaxy</h3>
+	        						<strong>RMB 1,239</strong>
+	        						<button class="btn addfollow" data-uuid="67148dd8-9981-4265-8343-934a968ffc22"><i class="icon-star"></i>关注</button>
+	        					</li>
+	        					<li>
+	        						<img src="upload/shoe2.png" alt="">
+	        						<h3>Adidas galaxy</h3>
+	        						<strong>RMB 1,239</strong>
+	        						<button class="btn addfollow" data-uuid="6cfb8e36-135d-4053-8586-3eb0f48c9bcc"><i class="icon-star"></i>关注</button>
+	        					</li>
+	        					<li>
+	        						<img src="upload/shoe3.png" alt="">
+	        						<h3>Adidas galaxy</h3>
+	        						<strong>RMB 1,239</strong>
+	        						<button class="btn addfollow" data-uuid="b61cb823-16a2-488d-928f-b6462ba83ad3"><i class="icon-star"></i>关注</button>
+	        					</li>
+	        				</ul>
+	        			</div>
+	        			<div class="op">
+	        				<a href=""><i class="icon-refresh"></i>再次荐鞋</a>
+	        				<span class="divider"></span>
+	        				<a href=""><i class="icon-share"></i>立即分享</a>
+	        			</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
