@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="format-detection" content="telephone=no">
+	<title>履行诸式绘摄</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="logo"></div>
+		<a class="header-link"><i class="icon-bars"></i></a>
+	</header>
+	<div class="container">
+		<div class="swipe">
+			<div class="img">
+				<img src="upload/project.jpg" width="70%">
+				<h3>型T 0823 AJ图案系列 短袖男款</h3>
+			</div>
+			<div class="control-prev"><i class="icon-control"></i></div>
+			<div class="control-next"><i class="icon-control"></i></div>
+		</div>
+		<div class="send-wechat">
+			<p>长按下方二维码关注履型者服务号:<strong>履型者服务平台</strong><br>发送：“<strong>型T 0823</strong>”给我们</p>
+			<h4>我们将飞速与您取得联系</h4>
+			<img src="images/qrcode.jpg" alt="">
+		</div>
+	</div>
+	<div class="side-nav">
+		<ul>
+			<li><a href="search.shtml">搜索鞋库</a></li>
+			<li><a href="/ssing_jx">智能荐鞋</a></li>
+			<li><a href="news.shtml">潮流资讯</a></li>
+			<li><a href="news-expert.shtml">深度解读</a></li>
+			<li><a href="events.shtml">最新活动</a></li>
+		</ul>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script>
+	$(function(){
+
+	})
+	</script>
+</body>
+</html>

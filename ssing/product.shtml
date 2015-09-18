@@ -267,7 +267,7 @@
 		count = 1;
 
 	function checkWXLogin() {
-	    b = getCookie('b')
+	    var b = getCookie('b')
 	    if (b == null || b == '') {
 	        var url = escape(window.location.href);
 	        console.log(url);
@@ -278,6 +278,15 @@
 	    	return true;
 	    }
 	}
+
+	/*function checkLogin(){
+		var b = getCookie('b');
+		if (b == null || b == '') {
+			return false;
+		}else{
+			return true;
+		}
+	}*/
 
 	function getCookie(c_name) {
 	    if (document.cookie.length > 0) {
@@ -344,6 +353,20 @@
 				$('#compareList').html(_compareList);
 			}
 		})
+	
+		//获取是否关注
+		/*$.ajax({
+			url: '/api/addFollow',
+			type: 'GET',
+			dataType: 'json',
+			data: {uuid: thisid},
+			success: function(data){
+				if(data.msg == 'followed'){
+					$('[data-target=#follow]').addClass('active');
+				}
+			}
+		})*/
+		
 
 		//比较
 		$('#addCompare').on('click', function(e){
@@ -412,9 +435,11 @@
 			success: function(data){
 				var list = data,
 					_list = '',
-					i = 0;
+					j = 0;
 				for(i in list){
-					_list += '<li><a href="product.shtml?uuid='+list[i].uuid+'"><div class="rec-img"><img src="upload/sshoes/'+list[i].uuid+'_s.jpg" alt=""></div><h3 class="rec-title">'+list[i].name+'</h3></a></li>';
+					if(list[i] != null){
+						_list += '<li><a href="product.shtml?uuid='+list[i].uuid+'"><div class="rec-img"><img src="upload/sshoes/'+list[i].uuid+'_s.jpg" alt=""></div><h3 class="rec-title">'+list[i].name+'</h3></a></li>';
+					}
 				}
 				$('#followedProducts').html(_list);
 			}
@@ -476,12 +501,26 @@
 							data: {uuid: thisid},
 							success: function(data){
 								//关注成功！，积分+1
-								if(data.msg == 'followed'){
-									alert('您已经关注过了！');
+								if(data.msg == 'success'){
+									$('#follow').find('span').html('关注成功！');
+								}else{
+									$.ajax({
+										url: '/api/deleteFollowed',
+										type: 'GET',
+										dataType: 'json',
+										data: {uuid: thisid},
+										success: function(data){
+											if(data.msg == 'success'){
+												$this.removeClass('active');
+												$('#follow').find('span').html('取消成功！');
+											}
+										}
+									})
 								}
 							}
 						})
 					}
+				
 					break;
 				case '#comment':
 					if(checkWXLogin()){

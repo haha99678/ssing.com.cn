@@ -15,7 +15,14 @@
 	<div class="container">
 		<div class="news-headlines" id="headlines"></div>
 		<div class="clearfix" id="waterfall">
-			<div class="fall-col"></div>
+			<div class="fall-col">
+				<div class="news-item">
+					<a href="#">
+						<img alt="" src="upload/wallpaper.jpg">
+						<h3>壁纸150807</h3>
+					</a>
+				</div>
+			</div>
 			<div class="fall-col"></div>
 		</div>
 		<div id="j_loading" class="loading"><i class="icon-loading"></i></div>
