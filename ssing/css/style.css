@@ -813,17 +813,35 @@ span.list-label{
 	text-overflow: ellipsis;
 	background: #202020;
 }
-.swipe{
+.swiper-container{
 	position: relative;
 	margin-top: 10px;
+	overflow: hidden;
 }
-.swipe .img{
+.swiper-wrapper{
+	position: relative;
+	width: 100%;
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-transition: all 0s ease-out;
+}
+.swiper-slide{
+	/*float: left;*/
+	/*width: 33.3333%;*/
+	top: 0;
+	width: 100%;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+.swiper-slide:first-child,
+.swiper-slide:last-child{
+	position: absolute;
+}
+.swiper-slide .img{
 	text-align: center;
 }
-.swipe .img img{
+.swiper-slide .img img{
 	max-width: 100%;
 }
-.swipe .img h3{
+.swiper-slide .img h3{
 	margin-top: 5px;
 	font-weight: normal;
 	color: #d9b267;
@@ -1054,7 +1072,6 @@ product single
 }
 .pro-info{
 	position: relative;
-	border-bottom: 2px solid #444;
 	background: #353535;
 }
 .pro-name{
@@ -1110,68 +1127,43 @@ product single
 	border-left: none;
 }
 .pro-expand{
-	position: absolute;
-	bottom: -14px;
-	left: 50%;
-	-webkit-transform: translateX(-50%);
-	transform: translateX(-50%);
+	margin-top: 5px;
 	color: #666;
 	text-align: center;
 }
-.pro-expand span{
-	display: none;
+.pro-expand:before{
+	content: "点击展开参数";
 }
-.pro-expand b{
-	position: relative;
-	display: block;
-	margin: 5px auto 0;
-	width: 52px;
-	text-align: center;
-}
-.pro-expand b em{
-	display: block;
-	position: relative;
-	z-index: 3;
-	font-size: .65rem;
-	line-height: 14px;
-	font-style: normal;
-	color: #d9b267;
-}
-.pro-expand b em i{
-	font-style: normal;
-}
-.pro-expand b:before{
-	position: absolute;
-	left: 0;
+.pro-expand:after{
 	content: "";
+	display: block;
+	margin: 5px auto;
+	width: 0;
+	height: 0;
 	border-style: solid;
-	border-width: 16px 26px 0 26px;
-	border-color: #444 transparent transparent transparent;
-}
-.pro-expand b:after{
-	position: absolute;
-	left: 2px;
-	top: -1px;
-	content: "";
-	border-style: solid;
-	border-width: 14px 24px 0 24px;
-	border-color: #353535 transparent transparent transparent;
-}
-.pro-info.active{
-	padding-bottom: 30px;
+	border-width: 5px 5px 0px 5px;
+	border-color: #d9b267 transparent transparent transparent;
+	transition: all .6s;
+	-webkit-transition: all .6s;
 }
 .pro-info.active .pro-data{
 	max-height: 640px;
 }
-.pro-info.active .pro-expand span{
+.pro-info.active .pro-expand{
 	display: block;
 }
-.pro-info.active .pro-expand b em{
+.pro-info.active .pro-expand:before{
+	content: "点击收起参数";
+}
+.pro-info.active .pro-expand:after{
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
 .pro-operate{
+	position: relative;
+	margin-top: -1px;
 	background: #212121;
+	border-top: 2px solid #444;
 }
 .op-tabs{
 	padding: 20px 10px 15px;

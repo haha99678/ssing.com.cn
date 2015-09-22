@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta name="format-detection" content="telephone=no">
-	<title>履行诸式绘摄</title>
+	<title>周边众筹款</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,16 +13,32 @@
 		<a class="header-link"><i class="icon-bars"></i></a>
 	</header>
 	<div class="container">
-		<div class="swipe">
-			<div class="img">
-				<img src="upload/project.jpg" width="70%">
-				<h3>型T 0823 AJ图案系列 短袖男款</h3>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="img">
+						<img src="upload/project.jpg" width="70%">
+						<h3>型T 0777 AJ图案系列 短袖男款</h3>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="img">
+						<img src="upload/project.jpg" width="70%">
+						<h3>型T 0888 AJ图案系列 短袖男款</h3>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="img">
+						<img src="upload/project.jpg" width="70%">
+						<h3>型T 0999 AJ图案系列 短袖男款</h3>
+					</div>
+				</div>
 			</div>
 			<div class="control-prev"><i class="icon-control"></i></div>
 			<div class="control-next"><i class="icon-control"></i></div>
 		</div>
 		<div class="send-wechat">
-			<p>长按下方二维码关注履型者服务号:<strong>履型者服务平台</strong><br>发送：“<strong>型T 0823</strong>”给我们</p>
+			<p>长按下方二维码关注履型者服务号:<strong>履型者服务平台</strong><br>发送：“<strong id="title">型T 0888</strong>”给我们</p>
 			<h4>我们将飞速与您取得联系</h4>
 			<img src="images/qrcode.jpg" alt="">
 		</div>
@@ -39,7 +55,95 @@
 	<script src="js/jquery.min.js"></script>
 	<script>
 	$(function(){
+		var $slide = $('.swiper-wrapper'),
+			screenWid = $(window).width(),
+			distance = 0,
+			startX = 0;
+		var setTransform = function(){
+			$slide.find('.swiper-slide').each(function(index, el) {
+				$(this).css({
+					transform: 'translate3d('+ screenWid*(index-1) +'px, 0, 0)'
+				});
+			});
+		};
+		var setOriginal = function(){
+			$slide.css({
+				'transform': 'translate3d(0, 0, 0)',
+				'transition': 'all 0s ease'
+			})
+		};
+		var setChange = function(wid){
+			$slide.css({
+				'transform': 'translate3d('+ wid +'px, 0, 0)',
+				'transition': 'all 0.8s ease',
+			});
+			setTimeout(function(){
+				$.ajax({
+					url: 'json/img.json',
+					type: 'GET',
+					dataType: 'json',
+					data: '',
+					success: function(xhr){
+						var data = xhr.img;
+						$('<div class=swiper-slide><div class="img"><img src="'+ data[0].src +'" width="50%"><h3>'+data[0].title+'</h3></div></div>').prependTo($slide);
+						setOriginal();
+						$slide.find('.swiper-slide').last().remove();
+						setTransform();
+					}
+				});
+			}, 800);
+		}
+		$slide.on('touchstart', function(e){
+			e = e.originalEvent;
+			var touch = e.touches[0];
+			startX = touch.clientX;
+			startY = touch.clientY;
+		})
+		$slide.on('touchmove', function(e){
+			var touch = e.originalEvent.touches[0];
+			if(Math.abs(touch.clientY-startY) > Math.abs(touch.clientX-startX)){
+				return;
+			}
+			e.preventDefault();
+			distance = touch.clientX-startX;
+			$slide.css({
+				'transform': 'translate3d('+ distance +'px, 0, 0)',
+				'transition': 'all 0s ease'
+			});
+		})
+		$slide.on('touchend', function(e){
+			e = e.originalEvent;
+			var touch = e.changedTouches[0];
+			var endX = touch.clientX;
+			distance = endX-startX;
+			if(distance > 50){
+				// console.log('向右')
+				setChange(screenWid);
+				
+			}else if(distance < -50){
+				setChange(-screenWid);
+				// console.log('向左')
+			}else{
+				setOriginal();
+			}
+		})
 
+		$('.control-next').on('click', function(){
+			setChange(-screenWid);
+		})
+		$('.control-prev').on('click', function(){
+			setChange(screenWid);
+		})
+
+
+		setTransform();
+
+		
+		//侧边导航
+		$('.header-link').on('click', function(e){
+			e.preventDefault();
+			$('html').toggleClass('side-open');
+		})
 	})
 	</script>
 </body>

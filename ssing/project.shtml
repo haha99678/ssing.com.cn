@@ -65,7 +65,10 @@
 	<script src="js/jquery.min.js"></script>
 	<script>
 	$(function(){
-
+		$('.header-link').on('click', function(e){
+			e.preventDefault();
+			$('html').toggleClass('side-open');
+		})
 	})
 	</script>
 </body>

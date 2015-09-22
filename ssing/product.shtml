@@ -6,6 +6,15 @@
 	<meta name="format-detection" content="telephone=no">
 	<title>单品页</title>
 	<link rel="stylesheet" href="css/style.css">
+        <script>
+                var _hmt = _hmt || [];
+                (function() {
+                        var hm = document.createElement("script");
+                        hm.src = "//hm.baidu.com/hm.js?589712e33148ab661a9f094ddf3645da";
+                        var s = document.getElementsByTagName("script")[0]; 
+                        s.parentNode.insertBefore(hm, s);
+                })();
+        </script>
 </head>
 <body>
 	<header class="header">
@@ -343,7 +352,7 @@
 					return labels.join('');
 				};
 
-				_list = '<div class="pro-img"><img src="upload/lshoes/'+list.uuid+'_l.jpg"></div><div class="pro-info clearfix"><h2 class="pro-name"><strong>'+list.name+'</strong></h2><div class="pro-desc"><i class="icon-tip"></i> '+list.slogan+'</div><div class="pro-data active"><ul class="data-list"><li><span class="label">品牌</span><span>'+list.brand+'</span></li><li><span class="label">货号</span><span>'+list.pnum+'</span></li><li><span class="label">类别</span><span>'+list.category+'</span></li><li><span class="label">价格</span><span>'+list.price+'</span></li><li><span class="label">颜色</span><span>'+list.colors.join()+'</span></li>'+getLabels()+'</ul></div><div class="pro-expand"><span>点击收起参数</span><b><em><i>&darr;</i></em></b></div></div>';
+				_list = '<div class="pro-img"><img src="upload/lshoes/'+list.uuid+'_l.jpg"></div><div class="pro-info clearfix active"><h2 class="pro-name"><strong>'+list.name+'</strong></h2><div class="pro-desc"><i class="icon-tip"></i> '+list.slogan+'</div><div class="pro-expand"></div><div class="pro-data active"><ul class="data-list"><li><span class="label">品牌</span><span>'+list.brand+'</span></li><li><span class="label">货号</span><span>'+list.pnum+'</span></li><li><span class="label">类别</span><span>'+list.category+'</span></li><li><span class="label">价格</span><span>'+list.price+'</span></li><li><span class="label">颜色</span><span>'+list.colors.join()+'</span></li>'+getLabels()+'</ul></div></div>';
 
 				_compareList = '<li><div class="list-remove">&times;</div><a href="'+list.uuid+'"><div class="list-img"><img src="upload/sshoes/'+list.uuid+'_s.jpg"></div><div class="list-desc"><h3 class="list-name">'+list.name+' '+list.pnum+'</h3><div class="list-price"><span class="list-label">预售价格：</span><strong>¥'+list.price+'.00</strong></div><div class="list-cat"><span class="list-label">类型：</span><span>'+list.category+'</span></div></div></a></li>'
 				$('#j_pro').html(_list);
@@ -465,8 +474,8 @@
 			}
 		})
 		
-		$('#j_pro').on('click', '.pro-info', function(){
-			$(this).toggleClass('active');
+		$('#j_pro').on('click', '.pro-expand', function(){
+			$(this).parent('.pro-info').toggleClass('active');
 		})
 
 		$('#uploadFile').on('change', function(e){
