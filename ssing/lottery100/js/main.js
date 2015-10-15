@@ -27,7 +27,6 @@ $(function(){
 			core.resize();
 			core.getMember();
 			// core.checkWXLogin();
-			core.checkLottery();
 		},
 		preload: function(){
 			for(var i=0; i<imgList.length; i++){
@@ -79,7 +78,7 @@ $(function(){
 				data: {param1: 'value1'},
 				success: function(data){
 					if('已抽过奖'){
-						window.location.href = 'delivery.html';
+						return true;
 					}
 				}
 			})
@@ -162,6 +161,7 @@ $(function(){
 					// alert(txt);
 					$('.prize').text(txt.substr(0,3));
 					$('.award').text(txt.substr(3));
+					$('.prizeAward').text(txt);
 					$('.awardimg').attr('src', turnplate.imgs[item-1]);
 					mySwiper.slideNext();
 					turnplate.bRotate = !turnplate.bRotate;
@@ -184,21 +184,32 @@ $(function(){
 	//跳转到下一页
 	$('#start').on('click', function(e){
 		e.preventDefault();
-		mySwiper.slideNext();
+		mySwiper.slideNext();	
 	})
 
 	//开始抽奖
 	$('#wheelStart').on('click', function(){
-		if(turnplate.bRotate)return;
-		turnplate.bRotate = !turnplate.bRotate;
-		//获取随机数(奖品个数范围内)
-		var item = core.rnd(1,turnplate.restaraunts.length);
-		core.rotateFn(item, turnplate.restaraunts[item-1]);
-		console.log(item);
+		//是否抽过奖
+		if(core.checkLottery()){
+			alert('您已经抽过奖了，请继续关注履型者其他活动！');
+		}else{
+			if(turnplate.bRotate)return;
+			turnplate.bRotate = !turnplate.bRotate;
+			//获取随机数(奖品个数范围内)
+			var item = core.rnd(1,turnplate.restaraunts.length);
+			core.rotateFn(item, turnplate.restaraunts[item-1]);
+			console.log(item);
+		}
+	})
+
+	//填写收货信息
+	$('#delivery').on('click', function(e){
+		e.preventDefault();
+		mySwiper.slideNext();
 	})
 	
 	//分享
-	$('#share').on('click', function(e){
+	$('#deliverySubmit').on('click', function(e){
 		e.preventDefault();
 		$('#pageShare').fadeIn();
 	})
