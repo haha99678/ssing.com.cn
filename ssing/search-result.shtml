@@ -8,41 +8,47 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="search-header">
-		<form class="search-form" action="search-result.shtml">
-			<input class="search-input" id="searchKeyword" type="search" placeholder="输入感兴趣的关键字" value="">
-			<button class="search-btn"  id="searchBtn"><i class="icon-search"></i></button>
-		</form>
-		<div class="header-back"></div>
-		<div class="header-filter"><i class="icon-filter"></i></div>
-	</div>
-	<div class="search-popup" id="searchPopup">
-		<div id="j_cookie">
-			<div class="search-wrap hide" id="j_history">
-				<h4 class="search-title">搜索历史<a href="" class="search-close">&times;</a></h4>
-				<ul class="search-list"></ul>
-			</div>
-			<div class="search-wrap hide" id="j_hot">
-				<h4 class="search-title">履行者搜索热门关键字<a href="" class="search-close">&times;</a></h4>
-				<ul class="search-list"></ul>
-			</div>
+	<header class="header">
+		<div class="logo"></div>
+		<a class="header-link"><i class="icon-bars"></i></a>
+	</header>
+	<div class="container">
+		<div class="search-header">
+			<form class="search-form" action="search-result.shtml">
+				<input class="search-input" id="searchKeyword" type="search" placeholder="输入感兴趣的关键字" value="">
+				<button class="search-btn"  id="searchBtn"><i class="icon-search"></i></button>
+			</form>
+			<div class="header-back"></div>
+			<div class="header-filter"><i class="icon-filter"></i></div>
 		</div>
-		<div id="j_search"></div>
-	</div>
-	<div class="search-result">
-		<ul class="pro-list" id="j_result">
-			<!-- <li>
-				<a href="#">
-					<div class="list-img"><img src="upload/shoe1-sm.jpg" alt=""></div>
-					<div class="list-desc">
-						<h3 class="list-name">adidas 阿迪达斯 跑步 男子 跑步鞋 一号黑 S84052</h3>
-						<div class="list-price"><span class="list-label">预售价格：</span><strong>&yen;1239.00</strong></div>
-						<div class="list-cat"><span class="list-label">类型：</span><span>跑步系列</span></div>
-					</div>
-				</a>
-			</li> -->
-		</ul>
-		<div class="loading-more" id="j_more">加载更多</div>
+		<div class="search-popup" id="searchPopup">
+			<div id="j_cookie">
+				<div class="search-wrap hide" id="j_history">
+					<h4 class="search-title">搜索历史<a href="" class="search-close">&times;</a></h4>
+					<ul class="search-list"></ul>
+				</div>
+				<div class="search-wrap hide" id="j_hot">
+					<h4 class="search-title">履行者搜索热门关键字<a href="" class="search-close">&times;</a></h4>
+					<ul class="search-list"></ul>
+				</div>
+			</div>
+			<div id="j_search"></div>
+		</div>
+		<div class="search-result">
+			<ul class="pro-list" id="j_result">
+				<!-- <li>
+					<a href="#">
+						<div class="list-img"><img src="upload/shoe1-sm.jpg" alt=""></div>
+						<div class="list-desc">
+							<h3 class="list-name">adidas 阿迪达斯 跑步 男子 跑步鞋 一号黑 S84052</h3>
+							<div class="list-price"><span class="list-label">预售价格：</span><strong>&yen;1239.00</strong></div>
+							<div class="list-cat"><span class="list-label">类型：</span><span>跑步系列</span></div>
+						</div>
+					</a>
+				</li> -->
+			</ul>
+			<div class="loading-more" id="j_more">加载更多</div>
+		</div>
 	</div>
 
 	<div class="filter">
@@ -111,6 +117,16 @@
 				</ul>
 			</div>
 		</div>
+	</div>
+
+	<div class="side-nav">
+		<ul>
+			<li><a href="search.shtml">搜索鞋库</a></li>
+			<li><a href="/ssing_jx">智能荐鞋</a></li>
+			<li><a href="news.shtml">潮流资讯</a></li>
+			<li><a href="news-expert.shtml">深度解读</a></li>
+			<li><a href="events.shtml">最新活动</a></li>
+		</ul>
 	</div>
 
 	<script src="js/jquery.min.js"></script>
@@ -324,6 +340,11 @@
 
 		$('.header-back').on('click', function(){
 			window.history.back(-1);
+		})
+
+		$('.header-link').on('click', function(e){
+			e.preventDefault();
+			$('html').toggleClass('side-open');
 		})
 	})
 	</script>
