@@ -1175,6 +1175,7 @@ product single
 	text-align: center;
 }
 .op-tabs li em{
+	position: relative;
 	display: block;
 	margin: 0 auto;
 	width: 26px;
@@ -1183,6 +1184,21 @@ product single
 	font-style: normal;
 	border: 2px solid #c8a461;
 	border-radius: 100%;
+}
+.op-tabs li em .num{
+	position: absolute;
+	right: -12px;
+	top: -12px;
+	width: 21px;
+	height: 21px;
+	line-height: 21px;
+	color: #fff;
+	font-weight: normal;
+	background: #ff4931;
+	border-radius: 100%;
+}
+.op-tabs li:nth-child(3) em .num{
+	background: #0fbe63;
 }
 .op-tabs li span{
 	display: block;

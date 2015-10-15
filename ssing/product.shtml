@@ -27,8 +27,8 @@
 			<div class="pro-operate">
 				<ul class="op-tabs" id="opTabs">
 					<li data-target="#share"><em><i class="icon-share"></i></em><span>分享</span></li>
-					<li data-target="#comment" data-type="1"><em><i class="icon-hand-up"></i></em><span>好评</span></li>
-					<li data-target="#comment" data-type="2"><em><i class="icon-hand-down"></i></em><span>吐槽</span></li>
+					<li data-target="#comment" data-type="1"><em><b class="num">99</b><i class="icon-hand-up"></i></em><span>好评</span></li>
+					<li data-target="#comment" data-type="2"><em><b class="num">...</b><i class="icon-hand-down"></i></em><span>吐槽</span></li>
 					<li data-target="#follow"><em><i class="icon-star"></i></em><span>关注</span></li>
 					<li data-target="#compare"><em><i class="icon-compare"></i></em><span>比鞋</span></li>
 				</ul>
