@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"  />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>履型者</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="logo"></div>
+		<a class="header-link"><i class="icon-bars"></i></a>
+	</header>
+	<div class="swiper-container">
+		<div class="screen">
+			<div class="delivery">
+				<div class="tit">请填写相关收货信息</div>
+				<div class="info">我本周在履型者 摇大转盘中了一等奖AIR MAG</div>
+				<form class="form">
+					<div class="form-group">
+						<label>姓名</label>
+						<input type="text" name="name" placeholder="请输入您的姓名">
+					</div>
+					<div class="form-group">
+						<label>电话</label>
+						<input type="tel" name="tel" placeholder="请输入您的电话">
+					</div>
+					<div class="form-group">
+						<label>收货地址</label>
+						<textarea name="address" placeholder="请输入您的收货地址"></textarea>
+					</div>
+					<div class="form-group">
+						<a class="btn" id="">提交给履型者</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="side-nav">
+		<ul>
+			<li><a href="search.shtml">搜索鞋库</a></li>
+			<li><a href="/ssing_jx">智能荐鞋</a></li>
+			<li><a href="news.shtml">潮流资讯</a></li>
+			<li><a href="news-expert.shtml">深度解读</a></li>
+			<li><a href="events.shtml">最新活动</a></li>
+		</ul>
+	</div>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+	$(function(){
+		var	screenWidth = $(window).width(),
+			screenHeight = $(window).height();
+		var resize = function(){
+			$('.screen').css({
+				top: (screenHeight-832*(screenWidth/640))/2+40,
+				transform: 'scale('+screenWidth/640+','+screenWidth/640+')'
+			});
+		}
+		resize();
+		
+		$(window).resize(function() {
+			screenWidth = $(window).width();
+			screenHeight = $(window).height();
+			resize();
+		})
+
+		//侧边导航展开
+		$('.header-link').on('click', function(e){
+			e.preventDefault();
+			$('html').toggleClass('side-open');
+		})
+	})
+	</script>
+</body>
+</html>

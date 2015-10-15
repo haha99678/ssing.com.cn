@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"  />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>履型者</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="loading" id="j_loading">
+		<div class="spinner">
+		  <div class="spinner-container container1">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		  <div class="spinner-container container2">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		  <div class="spinner-container container3">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		</div>
+	</div>
+
+	<header class="header">
+		<div class="logo"></div>
+		<a class="header-link"><i class="icon-bars"></i></a>
+	</header>
+
+	<div class="swiper-container swiper-vertical">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide swiper-no-swiping">
+	        	<div class="sec">
+	        		<div class="screen">
+	        			<h2 class="list-tit">- 本周奖品礼单 -</h2>
+	        			<ul class="list-gift">
+	        				<li>
+	        					<div class="tit">
+	        						<h3>一等奖</h3>
+	        						<h4>AIR MAG</h4>
+	        					</div>
+	        					<div class="arr">&gt;</div>
+	        					<div class="img"><img src="images/gift1.png"></div>
+	        				</li>
+	        				<li>
+	        					<div class="tit">
+	        						<h3>二等奖</h3>
+	        						<h4>Yeezy 750</h4>
+	        					</div>
+	        					<div class="arr">&gt;</div>
+	        					<div class="img"><img src="images/gift2.png"></div>
+	        				</li>
+	        				<li>
+	        					<div class="tit">
+	        						<h3>三等奖</h3>
+	        						<h4>AJ1 retro high 2015</h4>
+	        					</div>
+	        					<div class="arr">&gt;</div>
+	        					<div class="img"><img src="images/gift3.png"></div>
+	        				</li>
+	        				<li>
+	        					<div class="tit">
+	        						<h3>四等奖</h3>
+	        						<h4>三叶草GLC</h4>
+	        					</div>
+	        					<div class="arr">&gt;</div>
+	        					<div class="img"><img src="images/gift4.png"></div>
+	        				</li>
+	        				<li>
+	        					<div class="tit">
+	        						<h3>五等奖</h3>
+	        						<h4>型格绘手机壳</h4>
+	        					</div>
+	        					<div class="arr">&gt;</div>
+	        					<div class="img"><img src="images/gift5.png"></div>
+	        				</li>
+	        				<li>
+	        					<div class="tit">
+	        						<h3>六等奖</h3>
+	        						<h4>型格杂志月刊</h4>
+	        					</div>
+	        					<div class="arr">&gt;</div>
+	        					<div class="img"><img src="images/gift6.png"></div>
+	        				</li>
+	        			</ul>
+	        			<a class="btn" id="start">立即点击去抽奖</a>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide swiper-no-swiping">
+	        	<div class="sec">
+	        		<div class="screen">
+	        			<div class="turnplate-wrap">
+	        				<div class="turnplate" id="turnplate">
+	        					<canvas id="wheelCanvas" class="wheel" width="552" height="552"></canvas>
+	        				</div>
+	        				<div class="start" id="wheelStart"></div>
+	        			</div>
+	        			<div class="panel">
+    						<div class="panel-heading">最近参与摇奖的有：</div>
+    						<div class="member-container">
+    						    <ul class="member-list" id="followers">
+    						    </ul>
+    					    </div>
+    					</div>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide swiper-no-swiping">
+	        	<div class="sec">
+	        		<div class="screen">
+	        			<div class="result">
+	        				<h1>恭喜中奖</h1>
+	        				<h2 class="prize">等奖</h2>
+	        				<img class="awardimg" src="">
+	        				<h2>您摇中了本周“<span class="prize">奖项</span>”</h2>
+	        				<h3 class="award">奖品</h3>
+	        				<p>请点击下方分享按钮将页面分享到朋友圈<br>即可领取奖品</p>
+	        			</div>
+	        			<a class="btn" id="share">点击分享</a>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="share" id="pageShare">
+		<div class="screen">
+			<h2>请将下信息分享到朋友圈</h2>
+			<h3>我本周在履型者<br>摇大转盘中了“<span class="prize">奖项</span>”</h3>
+			<img class="awardimg" src="">
+			<h4 class="award">奖品</h4>
+			<p>说不定你的手气会更好哦</p>
+		</div>
+	</div>
+
+	<div class="side-nav">
+		<ul>
+			<li><a href="search.shtml">搜索鞋库</a></li>
+			<li><a href="/ssing_jx">智能荐鞋</a></li>
+			<li><a href="news.shtml">潮流资讯</a></li>
+			<li><a href="news-expert.shtml">深度解读</a></li>
+			<li><a href="events.shtml">最新活动</a></li>
+		</ul>
+	</div>
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/awardRotate.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
